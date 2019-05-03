@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  principal: MyString
+  monthly_contribution: MyString
+  annual_interest_rate: MyString
+  investment_period: MyString
+  compound_period: MyString
+
+two:
+  title: MyString
+  principal: MyString
+  monthly_contribution: MyString
+  annual_interest_rate: MyString
+  investment_period: MyString
+  compound_period: MyString
