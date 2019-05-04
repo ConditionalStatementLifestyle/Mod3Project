@@ -4,11 +4,25 @@ class Graph {
     this.id = id
     this.title = title
     this.data = data
-    this.chartObject = {}
   }
 
-  setup() {
-    this.chartObject['contents'] = {
+
+  renderGraph() {
+    // let graphsDiv = document.getElementById('graphs')
+    var div = document.createElement('div')
+    div.setAttribute('class', 'chart')
+
+    let canvas = document.createElement('canvas')
+    canvas.setAttribute('id', `${this.id}`)
+    canvas.setAttribute('width', '100px')
+    canvas.setAttribute('height', '100px')
+    var ctx = canvas.getContext('2d')
+    div.appendChild(canvas)
+    document.body.appendChild(div)
+    // graphsDiv.appendChild(div)
+
+
+    var newChart = new Chart(ctx, {
       title: `${this.title}`,
       type: 'line',
       data: {
@@ -26,6 +40,16 @@ class Graph {
         }]
       },
       options: {
+        title: {
+            display: true,
+            text: `${this.title.toUpperCase()}`,
+            fontSize: 20,
+            fontFamily: "sans-serif"
+        },
+        legend: {
+            display: false,
+            // text: `${this.title}`
+        },
         scales: {
           xAxes: [{
             scaleLabel: {
@@ -44,26 +68,7 @@ class Graph {
           }]
         }
       }
-    }
-  }
-
-  renderGraph() {
-    let graphsDiv = document.getElementById('graphs')
-    let div = document.createElement('div')
-    div.textContent = 'HELLO?'
-    div.setAttribute('class','chart')
-
-    let canvas = document.createElement('canvas')
-    canvas.setAttribute('id',`${this.id}`)
-    canvas.setAttribute('width','100px')
-    canvas.setAttribute('height','100px')
-    let ctx = canvas.getContext('2d')
-    div.appendChild(canvas)
-    graphsDiv.appendChild(div)
-
-
-    let newChart = new Chart(ctx, this.chartObject['contents'])
-    debugger
+    })
   }
 
 
