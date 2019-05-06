@@ -5,4 +5,20 @@ class Api::V1::GraphsController < ApplicationController
    render json: @graphs
   end
 
+  def show
+    @graph = Graph.find(params[:id])
+  end
+
+  def create
+    @graph = Graph.new(graph_params)
+    @graph.save
+    @graph.createData
+  end
+
+  private
+
+  def graph_params
+    params.require(:graph).permit(:title, :principal, :monthly_contribution, :annual_interest_rate, :investment_period, :compound_period)
+  end
+
 end
