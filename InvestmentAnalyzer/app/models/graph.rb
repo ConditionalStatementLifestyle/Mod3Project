@@ -10,10 +10,10 @@ class Graph < ApplicationRecord
     @principal_multiplier = get_one_plus_r_over_n_to_nt(self)
     @future_value = get_future_value(self)
     @year = 0
-    while @year < @period do
+    while @year <= @period do
       create_data_point(@id, @year, @total)
       @year += 1
-      @principal_interest = @total*@principal_multiplier
+      @principal_interest = @total * @principal_multiplier
       @total = @principal_interest + @future_value
     end
 
