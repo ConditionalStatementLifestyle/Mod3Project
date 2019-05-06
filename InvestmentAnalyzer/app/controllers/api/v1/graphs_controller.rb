@@ -12,7 +12,7 @@ class Api::V1::GraphsController < ApplicationController
   def create
     @graph = Graph.new(graph_params)
     @graph.save
-    @graph.createData
+    @graph.create_data
   end
 
   private
