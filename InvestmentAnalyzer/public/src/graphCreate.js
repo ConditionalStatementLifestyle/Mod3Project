@@ -13,7 +13,7 @@ class Graph {
     div.setAttribute('class', 'chart')
 
     let canvas = document.createElement('canvas')
-    canvas.setAttribute('id', `${this.id}`)
+    canvas.setAttribute('id', `Graph:${this.id}`)
     canvas.setAttribute('width', '100px')
     canvas.setAttribute('height', '100px')
     var ctx = canvas.getContext('2d')

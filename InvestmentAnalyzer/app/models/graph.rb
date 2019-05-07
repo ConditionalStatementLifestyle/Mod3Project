@@ -46,7 +46,6 @@ class Graph < ApplicationRecord
     data_point.graph_id = graph_id
     data_point.year = year
     data_point.amount = amount
-    byebug
     data_point.save
   end
 

@@ -7,12 +7,14 @@ class Api::V1::GraphsController < ApplicationController
 
   def show
     @graph = Graph.find(params[:id])
+    render json: @graph
   end
 
   def create
     @graph = Graph.new(graph_params)
     @graph.save
     @graph.create_data
+    render json: @graph
   end
 
   private
