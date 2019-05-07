@@ -49,5 +49,11 @@ class Graph < ApplicationRecord
     data_point.save
   end
 
+  def remove_old_data_points
+    self.data_points.each do |point|
+      point.destroy
+    end
+  end
+
 
 end

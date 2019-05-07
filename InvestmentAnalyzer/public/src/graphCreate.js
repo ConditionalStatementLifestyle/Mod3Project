@@ -1,9 +1,13 @@
 class Graph {
 
-  constructor(id, title, data) {
-    this.id = id
-    this.title = title
-    this.data = data
+  constructor(dataJSON, dataPoints) {
+    this.id = dataJSON.id
+    this.title = dataJSON.title
+    this.principal = dataJSON.principal
+    this.monthlyContribution = dataJSON.monthly_contribution
+    this.annualInterestRate = dataJSON.annual_interest_rate
+    this.investmentPeriod = dataJSON.investment_period
+    this.data = dataPoints
   }
 
 
@@ -11,6 +15,7 @@ class Graph {
     // let graphsDiv = document.getElementById('graphs')
     var div = document.createElement('div')
     div.setAttribute('class', 'chart')
+    div.setAttribute('id', `Graph:${this.id}`)
 
     let canvas = document.createElement('canvas')
     canvas.setAttribute('id', `Graph:${this.id}`)
@@ -19,7 +24,23 @@ class Graph {
     var ctx = canvas.getContext('2d')
     div.appendChild(canvas)
     document.body.appendChild(div)
-    // graphsDiv.appendChild(div)
+
+    let buttonDiv = document.createElement('div')
+    buttonDiv.setAttribute('class','buttonDiv')
+    div.appendChild(buttonDiv)
+
+    let editButton = document.createElement('div')
+    let deleteButton = document.createElement('div')
+    editButton.setAttribute('class','button')
+    editButton.setAttribute('entry-type','edit')
+    deleteButton.setAttribute('class','button')
+    editButton.textContent = 'Edit'
+    deleteButton.textContent = 'Delete'
+    buttonDiv.appendChild(editButton)
+    buttonDiv.appendChild(deleteButton)
+
+    editButton.addEventListener('click', () => loadEditParams(this))
+    // deleteButton.addEventListener('click', )
 
 
     var newChart = new Chart(ctx, {
