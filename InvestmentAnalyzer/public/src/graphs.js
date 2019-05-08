@@ -39,3 +39,42 @@ function loadEditParams(graph) {
   form.elements.period.value = graph.investmentPeriod
   form.elements.hidden.value = graph.id
 }
+
+function editGraph(data) {
+  let graphInstance = findChart(data.id)
+  let axisData = parseGraphData(data.data_points)
+  graphInstance.graphObject.updateAxisData(axisData)
+  graphInstance.graphObject.renderGraph(graphInstance.divObject)
+}
+
+
+let storeChart, findChart, allGraphs
+
+function initializeGraphStorage() {
+  let allChartDivs = []
+
+
+  storeChart = function(div, graph) {
+    allChartDivs.push({
+      divObject: div,
+      graphObject: graph
+    })
+  }
+
+  findChart = function(id) {
+    let graphInstance = allChartDivs.find(element => {
+      if (element.divObject.id === `Graph:${id}`) {
+        return element
+      }
+    })
+    while (graphInstance.divObject.firstChild) {
+      graphInstance.divObject.firstChild.remove()
+    }
+    return graphInstance
+  }
+
+  allGraphs = function() {
+    return allChartDivs
+  }
+
+}

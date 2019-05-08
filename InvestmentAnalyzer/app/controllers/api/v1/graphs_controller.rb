@@ -18,10 +18,10 @@ class Api::V1::GraphsController < ApplicationController
   end
 
   def update
-    byebug
     @graph = Graph.find(params[:id])
     @graph.update(graph_params)
     @graph.remove_old_data_points
+    @graph = Graph.find(params[:id])
     @graph.create_data
     render json: @graph
   end

@@ -10,12 +10,18 @@ class Graph {
     this.data = dataPoints
   }
 
+  updateAxisData(dataPoints){
+    this.data = dataPoints
+  }
 
-  renderGraph() {
+
+  renderGraph(div = null) {
     // let graphsDiv = document.getElementById('graphs')
-    var div = document.createElement('div')
-    div.setAttribute('class', 'chart')
-    div.setAttribute('id', `Graph:${this.id}`)
+    if (div === null) {
+      var div = document.createElement('div')
+      div.setAttribute('class', 'chart')
+      div.setAttribute('id', `Graph:${this.id}`)
+    }
 
     let canvas = document.createElement('canvas')
     canvas.setAttribute('id', `Graph:${this.id}`)
@@ -26,14 +32,14 @@ class Graph {
     document.body.appendChild(div)
 
     let buttonDiv = document.createElement('div')
-    buttonDiv.setAttribute('class','buttonDiv')
+    buttonDiv.setAttribute('class', 'buttonDiv')
     div.appendChild(buttonDiv)
 
     let editButton = document.createElement('div')
     let deleteButton = document.createElement('div')
-    editButton.setAttribute('class','button')
-    editButton.setAttribute('entry-type','edit')
-    deleteButton.setAttribute('class','button')
+    editButton.setAttribute('class', 'button')
+    editButton.setAttribute('entry-type', 'edit')
+    deleteButton.setAttribute('class', 'button')
     editButton.textContent = 'Edit'
     deleteButton.textContent = 'Delete'
     buttonDiv.appendChild(editButton)
@@ -41,7 +47,7 @@ class Graph {
 
     editButton.addEventListener('click', () => loadEditParams(this))
     // deleteButton.addEventListener('click', )
-
+    storeChart(div, this)
 
     var newChart = new Chart(ctx, {
       title: `${this.title}`,
@@ -62,14 +68,14 @@ class Graph {
       },
       options: {
         title: {
-            display: true,
-            text: `${this.title.toUpperCase()}`,
-            fontSize: 20,
-            fontFamily: "sans-serif"
+          display: true,
+          text: `${this.title.toUpperCase()}`,
+          fontSize: 20,
+          fontFamily: "sans-serif"
         },
         legend: {
-            display: false,
-            // text: `${this.title}`
+          display: false,
+          // text: `${this.title}`
         },
         scales: {
           xAxes: [{
