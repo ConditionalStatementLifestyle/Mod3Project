@@ -1,5 +1,5 @@
 class Graph < ApplicationRecord
-  has_many :data_points
+  has_many :data_points, dependent: :destroy
 
   def create_data
     @period = self.investment_period

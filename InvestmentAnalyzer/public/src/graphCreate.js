@@ -1,17 +1,17 @@
 class Graph {
 
-  constructor(dataJSON, dataPoints) {
+  constructor(dataJSON, axisData) {
     this.id = dataJSON.id
     this.title = dataJSON.title
     this.principal = dataJSON.principal
     this.monthlyContribution = dataJSON.monthly_contribution
     this.annualInterestRate = dataJSON.annual_interest_rate
     this.investmentPeriod = dataJSON.investment_period
-    this.data = dataPoints
+    this.data = axisData
   }
 
-  updateAxisData(dataPoints){
-    this.data = dataPoints
+  updateAxisData(axisData){
+    this.data = axisData
   }
 
 
@@ -46,7 +46,7 @@ class Graph {
     buttonDiv.appendChild(deleteButton)
 
     editButton.addEventListener('click', () => loadEditParams(this))
-    // deleteButton.addEventListener('click', )
+    deleteButton.addEventListener('click', () => removeChartFromPage(this))
     storeChart(div, this)
 
     var newChart = new Chart(ctx, {

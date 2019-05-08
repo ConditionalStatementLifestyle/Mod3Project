@@ -26,6 +26,12 @@ class Api::V1::GraphsController < ApplicationController
     render json: @graph
   end
 
+  def destroy
+    @graph = Graph.find(params[:id])
+    @graph.destroy
+    render json: @graph
+  end
+
   private
 
   def graph_params

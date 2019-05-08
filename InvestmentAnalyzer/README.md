@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This App simulates total worth of an investment over a specified period of time. The underlying equation assumes monthly compounding and also monthly contributions by the user.
 
-Things you may want to cover:
+The equation I referenced to simulate the value can be found at: https://www.thecalculatorsite.com/articles/finance/compound-interest-formula.php
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Since this equation will provide the total value at the end of the period the user specifies, I simply iterated over a year at a time, creating a data point for each year and updating the new total. 

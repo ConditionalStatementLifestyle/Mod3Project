@@ -11,70 +11,103 @@ function renderAllGraphs(graphsData) {
 }
 
 function renderDataToGraph(data) {
-  let id = data.id
-  let title = data.title
   let axisData = parseGraphData(data.data_points)
-  let graph = new Graph(data, axisData)
-  graph.renderGraph()
+  let chartInstance = new Graph(data, axisData)
+  chartInstance.renderGraph()
 }
 
 function parseGraphData(dataPoints) {
-  let dataSet = {
+  let axisData = {
     xaxis: [],
     yaxis: []
   }
   dataPoints.forEach(dataPoint => {
-    dataSet['xaxis'].push(parseInt(dataPoint.year))
-    dataSet['yaxis'].push(parseInt(dataPoint.amount))
+    axisData['xaxis'].push(parseInt(dataPoint.year))
+    axisData['yaxis'].push(parseInt(dataPoint.amount))
   })
-  return dataSet
+  return axisData
 }
 
-function loadEditParams(graph) {
+function loadEditParams(chart) {
   let form = document.getElementById('form')
-  form.elements.title.value = graph.title
-  form.elements.principal.value = graph.principal
-  form.elements.monthly_contribution.value = graph.monthlyContribution
-  form.elements.interest_rate.value = graph.annualInterestRate
-  form.elements.period.value = graph.investmentPeriod
-  form.elements.hidden.value = graph.id
+  form.elements.title.value = chart.title
+  form.elements.principal.value = chart.principal
+  form.elements.monthly_contribution.value = chart.monthlyContribution
+  form.elements.interest_rate.value = chart.annualInterestRate
+  form.elements.period.value = chart.investmentPeriod
+  form.elements.hidden.value = chart.id
+}
+
+function clearFormParams() {
+  let form = document.getElementById('form')
+  form.elements.title.value = ''
+  form.elements.principal.value = ''
+  form.elements.monthly_contribution.value = ''
+  form.elements.interest_rate.value = ''
+  form.elements.period.value = ''
+  form.elements.hidden.value = ''
+  debugger
 }
 
 function editGraph(data) {
-  let graphInstance = findChart(data.id)
+  let chartInstance = findChart(data.id)
+  let blankDiv = removeChartDivChildren(chartInstance)
   let axisData = parseGraphData(data.data_points)
-  graphInstance.graphObject.updateAxisData(axisData)
-  graphInstance.graphObject.renderGraph(graphInstance.divObject)
+  chartInstance.graphObject.updateAxisData(axisData)
+  chartInstance.graphObject.renderGraph(blankDiv.divObject)
+}
+
+function removeChartFromPage(data) {
+  let chartInstance = findChart(data.id)
+  removeChartDivChildren(chartInstance)
+  sendDeleteRequest(data.id)
+}
+
+function removeChartParentDiv(id) {
+  let parentChartParentDiv = document.getElementById(`Graph:${id}`)
+  debugger
+  parentChartParentDiv.remove()
 }
 
 
-let storeChart, findChart, allGraphs
+let storeChart, findChart, allGraphs, removeChartDivChildren, removeChart
 
 function initializeGraphStorage() {
-  let allChartDivs = []
-
+  let allChartInstances = []
 
   storeChart = function(div, graph) {
-    allChartDivs.push({
+    allChartInstances.push({
       divObject: div,
       graphObject: graph
     })
   }
 
   findChart = function(id) {
-    let graphInstance = allChartDivs.find(element => {
+    let chartInstance = allChartInstances.find(element => {
       if (element.divObject.id === `Graph:${id}`) {
         return element
       }
     })
-    while (graphInstance.divObject.firstChild) {
-      graphInstance.divObject.firstChild.remove()
+    return chartInstance
+  }
+
+  removeChartDivChildren = function(chartInstance) {
+    while (chartInstance.divObject.firstChild) {
+      chartInstance.divObject.firstChild.remove()
     }
-    return graphInstance
+    return chartInstance
+  }
+
+  removeChart = function(id) {
+    for (index = 0; index < allChartInstances.length; index++) {
+      if (id === allChartInstances[index].graphObject.id) {
+        allChartInstances.splice(index,1)
+      }
+    }
   }
 
   allGraphs = function() {
-    return allChartDivs
+    return allChartInstances
   }
 
 }
