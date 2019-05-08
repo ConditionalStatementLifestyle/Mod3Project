@@ -39,9 +39,12 @@ class Graph {
     document.body.appendChild(div)
 
     let buttonDiv = document.createElement('div')
-    buttonDiv.setAttribute('class', 'buttonDiv')
+    buttonDiv.setAttribute('id', 'menu-container')
     div.appendChild(buttonDiv)
 
+    let menuContainerLeft = document.createElement('div')
+    menuContainerLeft.setAttribute('id', 'menu-container-left')
+    menuContainerLeft.setAttribute('class', 'menu-container-pane')
     let editButton = document.createElement('div')
     let deleteButton = document.createElement('div')
     editButton.setAttribute('class', 'button')

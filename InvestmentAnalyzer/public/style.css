@@ -66,7 +66,6 @@ div.chart {
 }
 
 .text-position {
-  float:right;
   display:block;
   font-size: 12px;
   font-family: 'Open Sans Condensed', sans-serif;
@@ -81,4 +80,36 @@ canvas {
   /* height: 100%;
   width: 100%; */
   display: inline-block;
+}
+
+#menu-container {
+  /* border: solid 1px black;
+  border-radius: 5px; */
+  width: 100%;
+  height: 10%;
+  /* padding: 5px;
+  margin: 20px; */
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#menu-container-left {
+
+}
+
+#menu-container-right {
+  text-align: center;
+  display: inline-flex;
+  justify-content: space-around;
+}
+
+#menu-container-right div {
+  flex: 0 1 auto;
+}
+
+.menu-container-pane {
+  width: 49%;
+  display: inline-block;
+  text-align: center;
 }
