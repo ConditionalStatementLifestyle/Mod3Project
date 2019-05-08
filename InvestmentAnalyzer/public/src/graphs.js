@@ -46,14 +46,15 @@ function clearFormParams() {
   form.elements.interest_rate.value = ''
   form.elements.period.value = ''
   form.elements.hidden.value = ''
-  debugger
 }
 
 function editGraph(data) {
   let chartInstance = findChart(data.id)
+  chartInstance.graphObject.title = data.title
   let blankDiv = removeChartDivChildren(chartInstance)
   let axisData = parseGraphData(data.data_points)
   chartInstance.graphObject.updateAxisData(axisData)
+  removeChart(data.id)
   chartInstance.graphObject.renderGraph(blankDiv.divObject)
 }
 
@@ -65,7 +66,6 @@ function removeChartFromPage(data) {
 
 function removeChartParentDiv(id) {
   let parentChartParentDiv = document.getElementById(`Graph:${id}`)
-  debugger
   parentChartParentDiv.remove()
 }
 
