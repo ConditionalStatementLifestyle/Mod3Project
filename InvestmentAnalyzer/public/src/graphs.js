@@ -50,10 +50,10 @@ function clearFormParams() {
 
 function editGraph(data) {
   let chartInstance = findChart(data.id)
-  chartInstance.graphObject.title = data.title
   let blankDiv = removeChartDivChildren(chartInstance)
   let axisData = parseGraphData(data.data_points)
   chartInstance.graphObject.updateAxisData(axisData)
+  chartInstance.graphObject.updateAttributes(data)
   removeChart(data.id)
   chartInstance.graphObject.renderGraph(blankDiv.divObject)
 }

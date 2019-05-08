@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300");
 
 div.chart {
-  width: 40%;
+  width: 50%;
   /* left: 50%; */
   margin-bottom: 50px;
   /* display: inline-block; */
@@ -31,7 +31,7 @@ div.chart {
 }
 
 .span {
-  background-color: white;
+  background: transparent;
   height: 30px;
   border-radius: 5px;
   /* border: 5px; */
@@ -63,6 +63,18 @@ div.chart {
   background: transparent;
   font-family: 'Open Sans Condensed', sans-serif;
   text-align: center;
+}
+
+.text-position {
+  float:right;
+  display:block;
+  font-size: 12px;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.menu-div {
+  /* display: inline-block; */
+  float: right;
 }
 
 canvas {

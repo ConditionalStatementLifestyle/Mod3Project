@@ -63,4 +63,5 @@ function sendDeleteRequest(id) {
     .then(res => res.json())
     .then(_ => removeChart(id))
     .then(_ => removeChartParentDiv(id))
+    .then(_ => clearFormParams())
 }

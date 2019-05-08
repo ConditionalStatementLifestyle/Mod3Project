@@ -14,6 +14,14 @@ class Graph {
     this.data = axisData
   }
 
+  updateAttributes(data) {
+    this.title = data.title
+    this.principal = data.principal
+    this.monthlyContribution = data.monthly_contribution
+    this.annualInterestRate = data.annual_interest_rate
+    this.investmentPeriod = data.investment_period
+  }
+
 
   renderGraph(div = null) {
     // let graphsDiv = document.getElementById('graphs')
@@ -25,9 +33,7 @@ class Graph {
 
     let canvas = document.createElement('canvas')
     canvas.setAttribute('id', `Graph:${this.id}`)
-    canvas.setAttribute('width', '100%')
-    canvas.setAttribute('height', '100%')
-    canvas.setAttribute('class', 'canvas')
+
     var ctx = canvas.getContext('2d')
     div.appendChild(canvas)
     document.body.appendChild(div)
@@ -49,6 +55,9 @@ class Graph {
     editButton.addEventListener('click', () => loadEditParams(this))
     deleteButton.addEventListener('click', () => removeChartFromPage(this))
     storeChart(div, this)
+
+    let menu = new Menu()
+    menu.renderMenu(buttonDiv, this)
 
     var newChart = new Chart(ctx, {
       title: `${this.title}`,
