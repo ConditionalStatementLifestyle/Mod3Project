@@ -83,7 +83,7 @@ class Graph {
         title: {
           display: true,
           text: `${this.title.toUpperCase()}`,
-          fontSize: 20,
+          fontSize: 50,
           fontFamily: "sans-serif"
         },
         legend: {
@@ -94,13 +94,15 @@ class Graph {
           xAxes: [{
             scaleLabel: {
               display: true,
-              labelString: 'Years'
+              labelString: 'Years',
+              fontSize: 20
             }
           }],
           yAxes: [{
             scaleLabel: {
               display: true,
-              labelString: 'Total Value In $'
+              labelString: 'Total Value In $',
+                fontSize: 20
             },
             ticks: {
               beginAtZero: true
