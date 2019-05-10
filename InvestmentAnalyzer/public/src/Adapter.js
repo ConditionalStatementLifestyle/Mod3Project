@@ -29,37 +29,36 @@ function handleSubmit(ev) {
       .then(res => res.json())
       .then(json => editGraph(json))
       .then(_ => clearFormParams())
-  }
-
-  else {
-      fetch(URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            title: title,
-            principal: principal,
-            monthly_contribution: monthly_contribution,
-            annual_interest_rate: interest_rate,
-            investment_period: period,
-            compound_period: '12'
-          })
+  } else {
+    fetch(URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          title: title,
+          principal: principal,
+          monthly_contribution: monthly_contribution,
+          annual_interest_rate: interest_rate,
+          investment_period: period,
+          compound_period: '12'
         })
-        .then(res => res.json())
-        .then(json => renderDataToGraph(json))
-        .then(_ => clearFormParams())
+      })
+      .then(res => res.json())
+      .then(json => renderDataToGraph(json))
+      .then(_ => clearFormParams())
   }
 }
 
 function sendDeleteRequest(id) {
-  fetch(URL + '/' + `${id}`,{
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    }})
+  fetch(URL + '/' + `${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
     .then(res => res.json())
     .then(_ => removeChart(id))
     .then(_ => removeChartParentDiv(id))

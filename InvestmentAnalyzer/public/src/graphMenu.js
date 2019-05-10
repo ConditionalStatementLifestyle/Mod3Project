@@ -13,19 +13,24 @@ class Menu {
     annualInterestRate.textContent = `Interest Rate: ${graphInstance.annualInterestRate}%`
     let period = document.createElement('div')
     period.textContent = `Period: ${graphInstance.investmentPeriod} Years`
+    let totalAmountAfterPeriod = document.createElement('div')
+    let lastElement = graphInstance.data.yaxis.length - 1
+    totalAmountAfterPeriod.textContent = `Total Worth: $${graphInstance.data.yaxis[lastElement]}`
 
     let textContainer = document.createElement('div')
     textContainer.setAttribute('id', 'menu-container-right')
     textContainer.setAttribute('class', 'menu-container-pane')
-    principal.setAttribute('class','text-position')
-    monthlyContribution.setAttribute('class','text-position')
-    annualInterestRate.setAttribute('class','text-position')
-    period.setAttribute('class','text-position')
+    principal.setAttribute('class', 'text-position')
+    monthlyContribution.setAttribute('class', 'text-position')
+    annualInterestRate.setAttribute('class', 'text-position')
+    period.setAttribute('class', 'text-position')
+    totalAmountAfterPeriod.setAttribute('class', 'total-bold')
 
     textContainer.appendChild(principal)
     textContainer.appendChild(monthlyContribution)
     textContainer.appendChild(annualInterestRate)
     textContainer.appendChild(period)
+    textContainer.appendChild(totalAmountAfterPeriod)
     parentButtonDiv.appendChild(textContainer)
 
   }

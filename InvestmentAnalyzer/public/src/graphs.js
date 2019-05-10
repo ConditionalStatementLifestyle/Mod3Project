@@ -55,9 +55,8 @@ function editGraph(data) {
   chartInstance.graphObject.updateAxisData(axisData)
   chartInstance.graphObject.updateAttributes(data)
   removeChart(data.id)
-  chartInstance.graphObject.renderGraph(blankDiv.divObject)
+chartInstance.graphObject.renderGraph(blankDiv.divObject)
 }
-
 function removeChartFromPage(data) {
   let chartInstance = findChart(data.id)
   removeChartDivChildren(chartInstance)
