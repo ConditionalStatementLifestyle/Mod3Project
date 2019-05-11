@@ -67,3 +67,16 @@ function removeChartParentDiv(id) {
   let parentChartParentDiv = document.getElementById(`Graph:${id}`)
   parentChartParentDiv.remove()
 }
+
+function displayTotalWorthWithCommas(worth) {
+  let stringifiedWorth = worth.toString()
+  let commafiedWorth = []
+  let length = stringifiedWorth.length
+  for (i = 0; i < stringifiedWorth.length; i++) {
+    if (i%3===0 && i != 0) {
+      commafiedWorth.unshift(',')
+    }
+    commafiedWorth.unshift(stringifiedWorth[length - 1 - i])
+  }
+  return commafiedWorth.join('')
+}

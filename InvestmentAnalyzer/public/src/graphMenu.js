@@ -15,7 +15,7 @@ class Menu {
     period.textContent = `Period: ${graphInstance.investmentPeriod} Years`
     let totalAmountAfterPeriod = document.createElement('div')
     let lastElement = graphInstance.data.yaxis.length - 1
-    totalAmountAfterPeriod.textContent = `Total Worth: $${graphInstance.data.yaxis[lastElement]}`
+    totalAmountAfterPeriod.textContent = `Total Worth: $${displayTotalWorthWithCommas(graphInstance.data.yaxis[lastElement])}`
 
     let textContainer = document.createElement('div')
     textContainer.setAttribute('id', 'menu-container-right')
@@ -32,7 +32,7 @@ class Menu {
     textContainer.appendChild(annualInterestRate)
     textContainer.appendChild(period)
     textContainer.appendChild(totalAmountAfterPeriod)
-    
+
     parentButtonDiv.appendChild(textContainer)
 
   }
