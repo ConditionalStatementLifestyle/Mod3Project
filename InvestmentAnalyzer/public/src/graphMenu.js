@@ -20,6 +20,7 @@ class Menu {
     let textContainer = document.createElement('div')
     textContainer.setAttribute('id', 'menu-container-right')
     textContainer.setAttribute('class', 'menu-container-pane')
+
     principal.setAttribute('class', 'text-position')
     monthlyContribution.setAttribute('class', 'text-position')
     annualInterestRate.setAttribute('class', 'text-position')
@@ -31,6 +32,7 @@ class Menu {
     textContainer.appendChild(annualInterestRate)
     textContainer.appendChild(period)
     textContainer.appendChild(totalAmountAfterPeriod)
+    
     parentButtonDiv.appendChild(textContainer)
 
   }
