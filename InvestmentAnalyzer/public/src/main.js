@@ -1,4 +1,4 @@
-const URL = 'https://investment-analyzer1234.herokuapp.com'
+const URL = 'https://investment-analyzer1234.herokuapp.com/api/v1/graphs'
 // const URL = 'http://localhost:3000/api/v1/graphs'
 
 function main() {
