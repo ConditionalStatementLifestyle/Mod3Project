@@ -38,7 +38,7 @@ class Graph {
 
     var ctx = canvas.getContext('2d')
     div.appendChild(canvas)
-    graphsContainer.prep(div,graphsContainer.firstChild);
+    graphsContainer.insertBefore(div,graphsContainer.firstChild);
 
     let buttonDiv = document.createElement('div')
     buttonDiv.setAttribute('id', 'menu-container')
