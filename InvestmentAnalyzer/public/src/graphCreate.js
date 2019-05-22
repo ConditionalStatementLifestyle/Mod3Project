@@ -24,7 +24,8 @@ class Graph {
 
 
   renderGraph(div = null) {
-    // let graphsDiv = document.getElementById('graphs')
+    let graphsContainer = document.getElementById('graphs-container')
+
     if (div === null) {
       var div = document.createElement('div')
       div.setAttribute('class', 'chart')
@@ -37,7 +38,7 @@ class Graph {
 
     var ctx = canvas.getContext('2d')
     div.appendChild(canvas)
-    document.body.appendChild(div)
+    graphsContainer.prep(div,graphsContainer.firstChild);
 
     let buttonDiv = document.createElement('div')
     buttonDiv.setAttribute('id', 'menu-container')
