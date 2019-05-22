@@ -34,6 +34,7 @@ class Graph {
 
     let canvas = document.createElement('canvas')
     canvas.setAttribute('id', `Graph:${this.id}`)
+  
 
     var ctx = canvas.getContext('2d')
     div.appendChild(canvas)
