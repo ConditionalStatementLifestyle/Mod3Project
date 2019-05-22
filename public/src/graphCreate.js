@@ -34,7 +34,7 @@ class Graph {
 
     let canvas = document.createElement('canvas')
     canvas.setAttribute('id', `Graph:${this.id}`)
-    canvas.setAttribute('style', 'transition: 2s;')
+    // canvas.setAttribute('style', 'transition: 0.5s;')
 
     var ctx = canvas.getContext('2d')
     div.appendChild(canvas)

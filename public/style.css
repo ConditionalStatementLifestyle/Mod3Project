@@ -82,6 +82,7 @@ div.chart {
 
 canvas {
   display: inline-block;
+  transition: 0.5s;
 }
 
 #menu-container {
