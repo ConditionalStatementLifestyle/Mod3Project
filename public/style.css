@@ -112,3 +112,27 @@ canvas {
   display: inline-block;
   text-align: center;
 }
+
+#warnings {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 14px;
+}
+
+.visible {
+  -webkit-animation: fadein 1s; 
+}
+
+.not-visible {
+  -webkit-animation: fadeout 0.75s; 
+  opacity: 0;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeout {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}

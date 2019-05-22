@@ -1,6 +1,11 @@
 class Graph < ApplicationRecord
   has_many :data_points, dependent: :destroy
 
+  # The below methods are named in reference to the following equation
+  # Total = [ P(1+r/n)^(nt) ] + [ PMT × (((1 + r/n)^(nt) - 1) / (r/n)) ]
+  #  This is broken down into the following segments
+  #  Total = [ Compound interest for principal ] + [ Future value of a series ]
+
   def create_data
     @period = self.investment_period
     @principal = self.principal
