@@ -11,11 +11,16 @@
 
   <div class="position span">
     <form id='form' class="">
-      <input type="text" name="title" placeholder="Title" value="">
-      <input type="number" name="principal" placeholder="Principal" value="">
-      <input type="number" name="monthly_contribution"  placeholder='Monthly Contribution'value="">
-      <input type="number" name="interest_rate" placeholder="Annual Interest Rate" value="">
-      <input type="number" name="period" placeholder="Investment Period" value="">
+      <label id='form-label'>Title</label>
+      <input type="text" name="title" value="">
+      <label id='form-label'>Principal</label>
+      <input type="number" name="principal" value="">
+      <label id='form-label'>Monthly Contribution</label>
+      <input type="number" name="monthly_contribution" value="">
+      <label id='form-label'>Interest Rate</label>
+      <input type="number" name="interest_rate" value="" step='0.5'>
+      <label id='form-label'>Investment Period</label>
+      <input type="number" name="period" value="" max='100'>
       <input type="hidden" name="hidden" value="">
       <input type="submit" id='submit-button' value="Create Graph">
     </form>
