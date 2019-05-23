@@ -59,6 +59,7 @@ div.chart {
   background: transparent;
   font-family: 'Open Sans Condensed', sans-serif;
   text-align: center;
+  cursor: pointer;
 }
 
 .text-position {

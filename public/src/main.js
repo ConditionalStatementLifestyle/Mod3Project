@@ -6,7 +6,7 @@ function main() {
   initializeGraphStorage()
   getGraphs()
   let form = document.getElementById('form')
-  form.addEventListener('change', checkFormValidity)
+  // form.addEventListener('change', checkFormValidity)
   form.addEventListener('submit', handleSubmit)
 }
 

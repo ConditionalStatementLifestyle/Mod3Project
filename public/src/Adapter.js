@@ -1,4 +1,4 @@
-let warningDiv = document.getElementById('warnings')
+// let warningDiv = document.getElementById('warnings') // validity check
 
 function handleSubmit(ev) {
   ev.preventDefault()
@@ -10,7 +10,7 @@ function handleSubmit(ev) {
   let interest_rate = ev.target.elements.interest_rate.value
   let period = ev.target.elements.period.value
 
-  if (warningDiv.childElementCount === 0) {
+  // if (warningDiv.childElementCount === 0) { //validity check
 
     if (isEdit != '') {
       fetch(URL + '/' + `${isEdit}`, {
@@ -55,10 +55,10 @@ function handleSubmit(ev) {
         .then(_ => clearFormParams())
         .then(_ => window.scrollTo(0, 0))
     }
-  }
-  else {
-    return null
-  }
+  // } //validity check
+  // else {
+  //   return null
+  // }
 }
 
 function sendDeleteRequest(id) {
@@ -75,28 +75,28 @@ function sendDeleteRequest(id) {
     .then(_ => clearFormParams())
 }
 
-function checkFormValidity(ev) {
+// function checkFormValidity(ev) { //validity check
 
- let name = ev.target.name
- let value = ev.target.value
+//  let name = ev.target.name
+//  let value = ev.target.value
 
- if (name !== 'title' && value !== '') {
-  if (isNaN(parseInt(value))) {
-    let warning = document.createElement('div')
-    warning.setAttribute('id',`warning:${name}`)
-    warning.setAttribute('class','visible')
-    warning.textContent = `Number fields should only contain integers or decimals`
-    warningDiv.appendChild(warning)
-  }
-  else {
-    let warning = document.getElementById(`warning:${name}`)
-    if (warning) { 
-      warning.classList.remove('visible')
-      warning.setAttribute('class','not-visible')  
-      setTimeout(() => warning.remove(),500)
-      }
-    }
-  }
-}
+//  if (name !== 'title' && value !== '') {
+//   if (isNaN(parseInt(value))) {
+//     let warning = document.createElement('div')
+//     warning.setAttribute('id',`warning:${name}`)
+//     warning.setAttribute('class','visible')
+//     warning.textContent = `Number fields should only contain integers or decimals`
+//     warningDiv.appendChild(warning)
+//   }
+//   else {
+//     let warning = document.getElementById(`warning:${name}`)
+//     if (warning) { 
+//       warning.classList.remove('visible')
+//       warning.setAttribute('class','not-visible')  
+//       setTimeout(() => warning.remove(),500)
+//       }
+//     }
+//   }
+// }
 
 
