@@ -4,7 +4,7 @@ Invest Big is a simple web app that simulates the total worth of an investment o
 
 ## Motivation
   
-I wanted to make a simple and easy to use investment calculator in which anybody could use and easily compare outcomes. 
+I wanted to make a simple and easy to use investment calculator in which anybody could use and easily compare outcomes under various conditions. 
 
 # ![ScreenShot](/InvestBig.png)
 
